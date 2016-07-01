@@ -23,7 +23,7 @@ import (
 	"syscall"
 
 	Log "github.com/Sirupsen/logrus"
-	driver "github.com/plumgrid/libnetwork-plugin/plugin/driver"
+	driver "github.com/plumgrid/libnetwork-plugin/plugin/main/driver"
 )
 
 var version = "v1.0"

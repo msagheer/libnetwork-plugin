@@ -1,11 +1,11 @@
-PLUGIN_EXE:=plugin/plumgrid
+PLUGIN_EXE:=plugin/main/plumgrid
 
 .DEFAULT: all
 .PHONY: all
 
 PLUGIN_VERSION=git-$(shell git rev-parse --short=12 HEAD)
 
-$(PLUGIN_EXE): plugin/main.go plugin/driver/*.go
+$(PLUGIN_EXE): plugin/main/main.go plugin/main/driver/*.go
 	go get -tags netgo ./$(@D)
 	go build -ldflags "-extldflags \"-static\" -X main.version $(PLUGIN_VERSION)" -tags netgo -o $@ ./$(@D)
 	@strings $@ | grep cgo_stub\\\.go >/dev/null || { \
